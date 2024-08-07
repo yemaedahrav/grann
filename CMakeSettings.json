@@ -1,0 +1,7 @@
+﻿{
+    "configurations": [
+        {
+            "cmake.cmakePath": "/usr/bin/cmake"
+        }
+    ]
+}
