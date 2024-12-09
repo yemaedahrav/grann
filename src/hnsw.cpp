@@ -268,7 +268,7 @@ namespace grann {
   _u32 HNSW<T>::search(const T *query, _u32 res_count,
                        const Parameters &search_params, _u32 *indices,
                        float *distances, QueryStats *stats,
-											 std::vector<label> search_filters) {
+											 [[maybe_unused]] std::vector<label> search_filters) {
     _u32                     search_list_size = search_params.Get<_u32>("L");
     std::vector<unsigned>    init_ids;
     tsl::robin_set<unsigned> visited(10 * search_list_size);

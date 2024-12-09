@@ -16,7 +16,7 @@
 #include "utils.h"
 
 template<typename T>
-int search_index(int argc, char** argv) {
+int search_index([[maybe_unused]] int argc, char** argv) {
   T*                query = nullptr;
   unsigned*         gt_ids = nullptr;
   float*            gt_dists = nullptr;

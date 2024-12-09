@@ -13,8 +13,8 @@ int main(int argc, char* argv[]) {
         if(strcmp(argv[1], "gaussian") == 0) grann::load_bin<float>(argv[2], data, npts, ndim);
         else grann::load_bin<float>(argv[2], data, npts, ndim);
     
-        for(int i = 0; i < npts; i++) {
-            for(int j = 0; j < ndim; j++) {
+        for(_u64 i = 0; i < npts; i++) {
+            for(_u64 j = 0; j < ndim; j++) {
                 std::cout << data[i * ndim + j] << " ";
             }
             std::cout << std::endl;

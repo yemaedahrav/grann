@@ -274,7 +274,7 @@ inline void save_groundtruth_as_one_file(const std::string filename,
 }
 
 template<typename T>
-int aux_main(int argv, char **argc) {
+int aux_main([[maybe_unused]] int argv, char **argc) {
   size_t      npoints, nqueries, dim;
   std::string base_file(argc[2]);
   std::string query_file(argc[3]);

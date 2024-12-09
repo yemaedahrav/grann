@@ -149,8 +149,8 @@ namespace grann {
 
   template<typename T>
   _u32 LSHIndex<T>::search(const T *query, _u32 res_count,
-                           const Parameters &search_params, _u32 *indices,
-                           float *distances, QueryStats *stats, std::vector<label> search_filters) {
+                           [[maybe_unused]] const Parameters &search_params, _u32 *indices,
+                           float *distances, QueryStats *stats, [[maybe_unused]] std::vector<label> search_filters) {
     float *query_float = new float[this->_aligned_dim];
     grann::convert_types(query, query_float, 1, this->_aligned_dim);
 
