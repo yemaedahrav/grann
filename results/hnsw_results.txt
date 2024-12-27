@@ -1,0 +1,44 @@
+Usage: ./build_hnsw  [data_type<int8/uint8/float>] [l2/mips] [data_file.bin]  [output_index_prefix]  [R]  [L]  [alpha] [pruning_rule (0 for RNG, 1 for top-K)] [sampling_rate] [num_levels]   [num_threads_to_use]. See README for more information on parameters.
+Reading bin file /nvmessd1/fbv4/queries.fbin ...Metadata: #pts = 13265, #dims = 384, aligned_dim = 384... done.
+ Stat(/nvmessd1/fbv4/prec1M_gt100.bin) returned: 0
+Opened: /nvmessd1/fbv4/prec1M_gt100.bin, size: 10612008, cache_size: 10612008
+Reading truthset file /nvmessd1/fbv4/prec1M_gt100.bin ...
+Metadata: #pts = 13265, #dims = 100...
+Initialized Empty HNSW Object at level 0
+Initialized Empty HNSW Object at level 1
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_data.bin ...Metadata: #pts = 101209, #dims = 384, aligned_dim = 384... done.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_tags.bin ...
+Metadata: #pts = 101209, #dims = 1.
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_labels.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_universal_label.txt) returned: -1
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 101209 nodes and 2586058 out-edges
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_data.bin ...Metadata: #pts = 1010812, #dims = 384, aligned_dim = 384... done.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_tags.bin ...
+Metadata: #pts = 1010812, #dims = 1.
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_labels.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_universal_label.txt) returned: -1
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 1010812 nodes and 30399957 out-edges
+Vamana loaded
+  Ls        QPS     Mean Latency (mus)  99.9% Latency   Recall@25      Mean Cmps.   Mean Hops     99.9% Cmps.  99.9% Hops
+=========================================================================================================================
+  50     4045.99              11802.38       27742.14       65.95         4382.63      107.99         5804.00      134.00
+  75     3780.62              12668.22       23020.97       73.05         6176.48      156.83         7867.00      184.00
+ 100     3074.19              15583.31       26750.82       77.56         7924.12      206.05         9789.00      231.00
+ 150     1976.65              24238.98       39594.13       83.10        11297.54      305.22        13708.00      324.00
+ 200     1475.82              32470.34       53685.03       86.42        14523.55      404.75        17477.00      422.00
+Done searching. Now saving results 
+Writing bin: hnsw_results_50_idx_uint32.bin
+bin: #pts = 13265, #dims = 25, size = 1326508B
+Finished writing bin.
+Writing bin: hnsw_results_75_idx_uint32.bin
+bin: #pts = 13265, #dims = 25, size = 1326508B
+Finished writing bin.
+Writing bin: hnsw_results_100_idx_uint32.bin
+bin: #pts = 13265, #dims = 25, size = 1326508B
+Finished writing bin.
+Writing bin: hnsw_results_150_idx_uint32.bin
+bin: #pts = 13265, #dims = 25, size = 1326508B
+Finished writing bin.
+Writing bin: hnsw_results_200_idx_uint32.bin
+bin: #pts = 13265, #dims = 25, size = 1326508B
+Finished writing bin.
