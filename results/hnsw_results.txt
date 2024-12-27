@@ -1,0 +1,70 @@
+Reading bin file /nvmessd1/fbv4/prec1M.fbin ...Metadata: #pts = 1010812, #dims = 384, aligned_dim = 384... done.
+Initialized HNSW Object with 1010812 points, dim=384.
+Writing bin: /tmp/temp_data
+bin: #pts = 101209, #dims = 384, size = 155457032B
+Finished writing bin.
+Reading bin file /tmp/temp_data ...Metadata: #pts = 101209, #dims = 384, aligned_dim = 384... done.
+Initialized HNSW Object with 101209 points, dim=384.
+Starting hnsw build with listSize L=100, degree bound R=64, and alpha=1 on HNSW level 0
+Medoid identified as 66687
+10% of build completed 20% of build completed 30% of build completed 40% of build completed 50% of build completed 60% of build completed 70% of build completed 80% of build completed 90% of build completed 100% of build completed 110% of build completed Starting final cleanup..done.
+Total build time: 6.93749s
+Starting hnsw build with listSize L=100, degree bound R=64, and alpha=1 on HNSW level 1
+Medoid identified as 121334
+10% of build completed 20% of build completed 30% of build completed 40% of build completed 50% of build completed 60% of build completed 70% of build completed 80% of build completed 90% of build completed 100% of build completed 110% of build completed Starting final cleanup..done.
+Total build time: 227.508s
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_data.bin
+bin: #pts = 101209, #dims = 384, size = 155457032B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_tags.bin
+bin: #pts = 101209, #dims = 1, size = 404844B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_data.bin
+bin: #pts = 1010812, #dims = 384, size = 1552607240B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_tags.bin
+bin: #pts = 1010812, #dims = 1, size = 4043256B
+Finished writing bin.
+Reading bin file /nvmessd1/fbv4/queries.fbin ...Metadata: #pts = 13265, #dims = 384, aligned_dim = 384... done.
+ Stat(/nvmessd1/fbv4/prec1M_gt100.bin) returned: 0
+Opened: /nvmessd1/fbv4/prec1M_gt100.bin, size: 10612008, cache_size: 10612008
+Reading truthset file /nvmessd1/fbv4/prec1M_gt100.bin ...
+Metadata: #pts = 13265, #dims = 100...
+Initialized Empty HNSW Object at level 0
+Initialized Empty HNSW Object at level 1
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_data.bin ...Metadata: #pts = 101209, #dims = 384, aligned_dim = 384... done.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_tags.bin ...
+Metadata: #pts = 101209, #dims = 1.
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_labels.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_universal_label.txt) returned: -1
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 101209 nodes and 2586058 out-edges
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_data.bin ...Metadata: #pts = 1010812, #dims = 384, aligned_dim = 384... done.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_tags.bin ...
+Metadata: #pts = 1010812, #dims = 1.
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_labels.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_universal_label.txt) returned: -1
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 1010812 nodes and 30399957 out-edges
+Vamana loaded
+  Ls        QPS     Mean Latency (mus)  99.9% Latency   Recall@50      Mean Cmps.   Mean Hops     99.9% Cmps.  99.9% Hops
+=========================================================================================================================
+  50      418.51               2388.76        9666.19       60.11         4372.71      107.99         5794.00      134.00
+  75      321.80               3107.39        4142.11       67.63         6164.37      156.83         7860.00      184.00
+ 100      246.79               4051.94        5192.97       72.57         7910.50      206.05         9759.00      231.00
+ 150      171.90               5817.18        7129.74       78.79        11286.21      305.22        13752.00      325.00
+ 200      131.59               7599.39        9262.54       82.64        14524.84      404.71        17510.00      422.00
+Done searching. Now saving results 
+Writing bin: /hnsw_results_50_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_75_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_100_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_150_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_200_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
