@@ -137,6 +137,8 @@ namespace grann {
     grann::Timer build_timer;
 
     unsigned num_threads = build_params.Get<unsigned>("num_threads");
+    // float alpha = build_params.Get<float>("alpha");
+    float alpha = 1.2;
 
     std::cout << "Starting rng build." << std::endl;
 
@@ -159,7 +161,7 @@ namespace grann {
 
     aux_params.Set<_u32>("C", this->_num_points);
     aux_params.Set<_u32>("R", this->_num_points);
-    aux_params.Set<float>("alpha", 1);
+    aux_params.Set<float>("alpha", 1.2);
     aux_params.Set<_u32>("L", this->_num_points);
     aux_params.Set<_u32>("num_threads", num_threads);
 
@@ -187,7 +189,7 @@ namespace grann {
       }
 
       this->prune_candidates_alpha_rng(location, pool, aux_params,
-                                       pruned_list);
+                                       pruned_list, alpha);
 
       this->_out_nbrs[location].reserve(pruned_list.size());
       for (auto link : pruned_list)

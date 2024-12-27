@@ -147,6 +147,8 @@ namespace grann {
     unsigned L = build_parameters.Get<unsigned>("L");
     unsigned degree_bound = build_parameters.Get<unsigned>("R");
     float    alpha = build_parameters.Get<float>("alpha");
+    std::cout<<"Building HNSW with L="<<L<<", R="<<degree_bound<<", alpha="<<alpha<<std::endl;
+    // float alpha = 1.2;
 
     std::cout << "Starting hnsw build with listSize L=" << L
                 << ", degree bound R=" << degree_bound
@@ -207,7 +209,7 @@ namespace grann {
 
       if (prune_rule == 0)
         this->prune_candidates_alpha_rng(location, best_L_nodes,
-                                         build_parameters, pruned_list);
+                                         build_parameters, pruned_list, alpha);
       else
         this->prune_candidates_top_K(location, best_L_nodes, build_parameters,
                                      pruned_list);
@@ -221,7 +223,7 @@ namespace grann {
       }
       GraphIndex<T>::add_reciprocal_edges(
           location, pruned_list,
-          build_parameters);  // add reverse edges
+          build_parameters, alpha);  // add reverse edges
     }
     std::cout << "Starting final cleanup.." << std::flush;
 #pragma omp parallel for schedule(dynamic, 65536)
@@ -244,7 +246,7 @@ namespace grann {
         }
         if (prune_rule == 0)
           this->prune_candidates_alpha_rng(node, dummy_pool, build_parameters,
-                                           new_out_neighbors);
+                                           new_out_neighbors, alpha);
         else
           this->prune_candidates_top_K(node, dummy_pool, build_parameters,
                                        new_out_neighbors);

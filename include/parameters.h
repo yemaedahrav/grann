@@ -12,7 +12,7 @@ class Parameters {
  public:
   Parameters() {
     Set<uint32_t>("num_threads", 0);
-    Set<float>("alpha",1);
+    Set<float>("alpha",1.2);
     Set<uint32_t>("pruning_rule", 0);
   }
 

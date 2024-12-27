@@ -37,7 +37,8 @@ namespace grann {
     void prune_candidates_alpha_rng(const unsigned         location,
                                     std::vector<Neighbor> &pool,
                                     const Parameters &     parameter,
-                                    std::vector<unsigned> &pruned_list);
+                                    std::vector<unsigned> &pruned_list,
+                                    const float            alpha);
 
     void prune_candidates_top_K(const unsigned         location,
                                 std::vector<Neighbor> &pool,
@@ -45,7 +46,7 @@ namespace grann {
                                 std::vector<unsigned> &pruned_list);
 
     void add_reciprocal_edges(unsigned n, std::vector<unsigned> &pruned_list,
-                              const Parameters &parameters);
+                              const Parameters &parameters, const float alpha);
 
     _u32 greedy_search_to_fixed_point(
         const T *node_coords, const _u32 list_size,

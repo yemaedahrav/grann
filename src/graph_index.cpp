@@ -130,10 +130,11 @@ namespace grann {
   template<typename T>
   void GraphIndex<T>::prune_candidates_alpha_rng(
       const unsigned point_id, std::vector<Neighbor> &candidate_list,
-      const Parameters &parameter, std::vector<unsigned> &pruned_list) {
+      const Parameters &parameter, std::vector<unsigned> &pruned_list, const float alpha) {
     unsigned degree_bound = parameter.Get<_u32>("R");
     unsigned maxc = parameter.Get<_u32>("C");
-    float    alpha = parameter.Get<float>("alpha");
+    // float    alpha = parameter.Get<float>("alpha");
+    // float    alpha = 1.2;
 
     if (candidate_list.size() == 0)
       return;
@@ -234,12 +235,17 @@ namespace grann {
   template<typename T>
   void GraphIndex<T>::add_reciprocal_edges(unsigned               n,
                                            std::vector<unsigned> &pruned_list,
-                                           const Parameters &     parameters) {
+                                           const Parameters &     parameters,
+                                           const float alpha) {
+                                            
     const auto degree_bound = parameters.Get<unsigned>("R");
 
     const auto prune_rule = parameters.Get<unsigned>("pruning_rule");
 
     const auto &src_pool = pruned_list;
+
+    //float alpha = parameters.Get<float>("alpha");
+    //float alpha = 1.2;
 
     assert(!src_pool.empty());
 
@@ -287,7 +293,7 @@ namespace grann {
         std::vector<unsigned> new_out_neighbors;
         if (prune_rule == 0)
           this->prune_candidates_alpha_rng(des, dummy_pool, parameters,
-                                           new_out_neighbors);
+                                           new_out_neighbors, alpha);
         else
           this->prune_candidates_top_K(des, dummy_pool, parameters,
                                        new_out_neighbors);

@@ -227,6 +227,7 @@ namespace grann {
     unsigned L = build_parameters.Get<unsigned>("L");
     unsigned degree_bound = build_parameters.Get<unsigned>("R");
     float    alpha = build_parameters.Get<float>("alpha");
+    // float alpha = 1.2;
 
     std::cout << "Starting vamana build with listSize L=" << L
                 << ", degree bound R=" << degree_bound
@@ -286,7 +287,7 @@ namespace grann {
 //      get_expanded_nodes(location, L, init_ids, pool, visited);
 
       this->prune_candidates_alpha_rng(location, pool, build_parameters,
-                                       pruned_list);
+                                       pruned_list, alpha);
 
       this->_out_nbrs[location].reserve(
           (_u64)(VAMANA_SLACK_FACTOR * degree_bound));
@@ -297,7 +298,7 @@ namespace grann {
       }
       GraphIndex<T>::add_reciprocal_edges(
           location, pruned_list,
-          build_parameters);  // add reverse edges
+          build_parameters, alpha);  // add reverse edges
     }
     std::cout << "\nStarting final cleanup.." << std::flush;
 #pragma omp parallel for schedule(dynamic, 65536)
@@ -319,7 +320,7 @@ namespace grann {
           }
         }
         this->prune_candidates_alpha_rng(node, dummy_pool, build_parameters,
-                                         new_out_neighbors);
+                                         new_out_neighbors, alpha);
 
         this->_out_nbrs[node].clear();
         for (auto id : new_out_neighbors)
