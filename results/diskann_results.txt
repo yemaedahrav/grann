@@ -3,7 +3,18 @@ Reading bin file /nvmessd1/fbv4/prec1M.fbin ...Metadata: #pts = 1010812, #dims =
 Initialized Vamana Object with 1010812 points, dim=384.
 Starting vamana build with listSize L=100, degree bound R=64, and alpha=1.2
 Medoid identified as 121334
-0% of build completed...10% of build completed...20% of build completed...30% of build completed...40% of build completed...50% of build completed...60% of build completed...70% of build completed...80% of build completed...90% of build completed...100% of build completed...
+
+0% of build completed...
+10% of build completed...
+20% of build completed...
+30% of build completed...
+40% of build completed...
+50% of build completed...
+60% of build completed...
+70% of build completed...
+80% of build completed...
+90% of build completed...
+100% of build completed...
 Starting final cleanup..done.
       Percentile      Out Degree       In Degree
 =======================================================
@@ -11,15 +22,16 @@ Starting final cleanup..done.
               10               5               4
               20              14              13
               30              33              25
-              40              56              34
+              40              57              34
               50              64              41
               60              64              48
               70              64              57
               80              64              69
               90              64              91
-             100              64            1841
-0.137% points are unreachable and 121334 is the most popular in-degree node.
-Total build time: 177s
+             100              64            1853
+0.159% points are unreachable and 121334 is the most popular in-degree node.
+Average degree 46.1
+Total build time: 176s
 Writing bin: /nvmessd1/fbv4/avarhade/grann/diskann_prec1M_L100_R64_a1.2_data.bin
 bin: #pts = 1010812, #dims = 384, size = 1552607240B
 Finished writing bin.
@@ -38,15 +50,16 @@ Metadata: #pts = 1010812, #dims = 1.
  Stat(/nvmessd1/fbv4/avarhade/grann/diskann_prec1M_L100_R64_a1.2_labels.txt) returned: -1
  Stat(/nvmessd1/fbv4/avarhade/grann/diskann_prec1M_L100_R64_a1.2_universal_label.txt) returned: -1
  Stat(/nvmessd1/fbv4/avarhade/grann/diskann_prec1M_L100_R64_a1.2_labels_to_medoids.txt) returned: -1
-Loading vamana index /nvmessd1/fbv4/avarhade/grann/diskann_prec1M_L100_R64_a1.2.....done. Vamana has 1010812 nodes and 46579132 out-edges
+Loading vamana index /nvmessd1/fbv4/avarhade/grann/diskann_prec1M_L100_R64_a1.2.....done. Vamana has 1010812 nodes and 46618450 out-edges
+Average out degree: 46.12
 Vamana loaded
   Ls        QPS     Mean Latency (mus)  99.9% Latency   Recall@50      Mean Cmps.   Mean Hops     99.9% Cmps.  99.9% Hops
 =========================================================================================================================
-  50      615.67               1623.61       14838.88       63.49         3206.50       61.68         5951.00      108.00
-  75      448.79               2228.09       15617.64       70.07         4329.50       85.88         7324.00      140.00
- 100      356.66               2803.67       16355.62       74.37         5423.03      110.24         8419.00      163.00
- 150      255.54               3913.10       17790.04       79.83         7551.57      159.31        10822.00      209.00
- 200      188.95               5292.23       19229.31       83.25         9614.83      208.65        13237.00      258.00
+  50      541.45               1846.24        9149.36       63.40         3206.93       61.64         5830.00      109.00
+  75      436.28               2292.00        3844.28       70.03         4332.75       85.89         7265.00      139.00
+ 100      346.48               2886.06        4673.74       74.36         5427.74      110.27         8551.00      165.00
+ 150      248.03               4031.63        6059.32       79.82         7554.02      159.32        11098.00      213.00
+ 200      192.08               5206.02        7170.83       83.23         9619.01      208.68        13168.00      255.00
 Done searching. Now saving results 
 Writing bin: /diskann_results_50_idx_uint32.bin
 bin: #pts = 13265, #dims = 50, size = 2653008B

@@ -89,7 +89,7 @@ int search_index(int argc, char** argv) {
 
   grann::HNSW<T> hnsw(metric, num_levels - 1);
   hnsw.load(hnsw_prefix.c_str());  // to load Vamana Index
-  std::cout << "Vamana loaded" << std::endl;
+  std::cout << "HNSW loaded" << std::endl;
   grann::Parameters search_params;
 
   std::string recall_string = "Recall@" + std::to_string(recall_at);

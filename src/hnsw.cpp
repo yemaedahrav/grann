@@ -104,9 +104,14 @@ namespace grann {
                   << this->_num_points << " points. " << std::endl;
       return;
     }
+    _u64 total_out_degree = 0;
+    for (const auto& neighbors : this->_out_nbrs) {
+      total_out_degree += neighbors.size();
+    }
+    double avg_out_degree = static_cast<double>(total_out_degree) / this->_num_points;
 
     std::cout << "..done. HNSW has " << nodes << " nodes and " << cc
-                << " out-edges" << std::endl;
+                << " out-edges" << "Average out degree: " << avg_out_degree << std::endl;
   }
 
   /**************************************************************
@@ -254,6 +259,11 @@ namespace grann {
           this->_out_nbrs[node].emplace_back(id);
       }
     }
+    _u64 total_out_degree = 0;
+    for (const auto& neighbors : this->_out_nbrs) {
+      total_out_degree += neighbors.size();
+    }
+    double avg_out_degree = static_cast<double>(total_out_degree) / this->_num_points;
 
     std::cout << "done." << std::endl;
     this->_has_built = true;
@@ -262,6 +272,7 @@ namespace grann {
     std::cout << "Total build time: "
                 << ((double) build_timer.elapsed() / (double) 1000000) << "s"
                 << std::endl;
+    std::cout << "Average out degree: " << avg_out_degree << std::endl;
   }
 
   template<typename T>
