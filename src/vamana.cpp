@@ -128,9 +128,15 @@ namespace grann {
                   << this->_num_points << " points. " << std::endl;
       return;
     }
+    double total_out_degree = 0;
+    for (const auto& neighbors : this->_out_nbrs) {
+      total_out_degree += neighbors.size();
+    }
+    double average_out_degree = total_out_degree / this->_num_points;
 
     std::cout << "..done. Vamana has " << nodes << " nodes and " << cc
                 << " out-edges" << std::endl;
+    std::cout << "Average out degree: " << average_out_degree << std::endl;
   }
 
   /**************************************************************
@@ -327,10 +333,18 @@ namespace grann {
           this->_out_nbrs[node].emplace_back(id);
       }
     }
+    // Calculate average out degree of neighbors
+    double total_out_degree = 0;
+    for (_u64 node = 0; node < this->_num_points; node++) {
+      total_out_degree += this->_out_nbrs[node].size();
+    }
+    double average_out_degree = total_out_degree / this->_num_points;
 
     std::cout << "done." << std::endl;
     this->_has_built = true;
     this->update_degree_stats();
+
+    std::cout << "Average degree " << average_out_degree << std::endl;
 
     std::cout << "Total build time: "
                 << ((double) build_timer.elapsed() / (double) 1000000) << "s"
