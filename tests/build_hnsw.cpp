@@ -44,7 +44,7 @@ int build_hnsw_index(const std::string& data_path, const grann::Metric& metric,
 }
 
 int main(int argc, char** argv) {
-  if (argc != 11) {
+  if (argc != 12) {
     std::cout << "Usage: " << argv[0]
               << "  [data_type<int8/uint8/float>] [l2/mips] [data_file.bin]  "
                  "[output_index_prefix]  "

@@ -1,0 +1,76 @@
+Reading bin file /nvmessd1/fbv4/prec40M.bin ...Metadata: #pts = 40469609, #dims = 384, aligned_dim = 384... done.
+Initialized HNSW Object with 40469609 points, dim=384.
+Writing bin: /tmp/temp_data
+bin: #pts = 4050100, #dims = 384, size = 1555238408B
+Finished writing bin.
+Reading bin file /tmp/temp_data ...Metadata: #pts = 4050100, #dims = 384, aligned_dim = 384... done.
+Initialized HNSW Object with 4050100 points, dim=384.
+Building HNSW with L=300, R=128, alpha=1.2
+Starting hnsw build with listSize L=300, degree bound R=128, and alpha=1.2 on HNSW level 0
+Medoid identified as 742847
+10% of build completed 20% of build completed 30% of build completed 40% of build completed 50% of build completed 60% of build completed 70% of build completed 80% of build completed 90% of build completed 100% of build completed Starting final cleanup..done.
+Total build time: 992.728s
+Average out degree: 100.298
+Building HNSW with L=300, R=128, alpha=1.2
+Starting hnsw build with listSize L=300, degree bound R=128, and alpha=1.2 on HNSW level 1
+Medoid identified as 11890341
+10% of build completed 20% of build completed 30% of build completed 40% of build completed 50% of build completed 60% of build completed 70% of build completed 80% of build completed 90% of build completed 100% of build completed 110% of build completed Starting final cleanup..done.
+Total build time: 20691.5s
+Average out degree: 101.706
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_0_data.bin
+bin: #pts = 4050100, #dims = 384, size = 1555238408B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_0_tags.bin
+bin: #pts = 4050100, #dims = 1, size = 16200408B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_1_data.bin
+bin: #pts = 40469609, #dims = 384, size = 15540329864B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_1_tags.bin
+bin: #pts = 40469609, #dims = 1, size = 161878444B
+Finished writing bin.
+Reading bin file /nvmessd1/fbv4/queries384d.bin ...Error. File size mismatch. Actual size is 5093768 while expected size is  20375048 npts = 13265 dim = 384 size of <T>= 4
+
+Reading bin file /nvmessd1/fbv4/queries384d.bin ...Metadata: #pts = 13265, #dims = 384, aligned_dim = 384... done.
+ Stat(/nvmessd1/fbv4/gt100_prec40M) returned: 0
+Opened: /nvmessd1/fbv4/gt100_prec40M, size: 10612008, cache_size: 10612008
+Reading truthset file /nvmessd1/fbv4/gt100_prec40M ...
+Metadata: #pts = 13265, #dims = 100...
+Initialized Empty HNSW Object at level 0
+Initialized Empty HNSW Object at level 1
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_0_data.bin ...Metadata: #pts = 4050100, #dims = 384, aligned_dim = 384... done.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_0_tags.bin ...
+Metadata: #pts = 4050100, #dims = 1.
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_0_labels.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_0_universal_label.txt) returned: -1
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2.....done. HNSW has 4050100 nodes and 406215126 out-edgesAverage out degree: 100.30
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_1_data.bin ...Metadata: #pts = 40469609, #dims = 384, aligned_dim = 384... done.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_1_tags.bin ...
+Metadata: #pts = 40469609, #dims = 1.
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_1_labels.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2_1_universal_label.txt) returned: -1
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L300_R128_a1.2.........done. HNSW has 40469609 nodes and 4116010535 out-edgesAverage out degree: 101.71
+HNSW loaded
+  Ls        QPS     Mean Latency (mus)  99.9% Latency   Recall@50      Mean Cmps.   Mean Hops     99.9% Cmps.  99.9% Hops
+=========================================================================================================================
+  50      226.84               4407.84       10133.64       79.41        11805.69      109.04        16942.00      147.00
+  75      235.08               4253.83       23723.70       84.29        16719.27      158.29        22378.00      197.00
+ 100      191.07               5233.56       24730.79       87.26        21534.09      207.77        27786.00      246.00
+ 150      128.61               7775.48       27583.58       90.72        30924.07      307.12        38551.00      340.00
+ 200       97.03              10306.51       30104.07       92.73        40068.66      406.77        49358.00      436.00
+Done searching. Now saving results 
+Writing bin: /hnsw_results_50_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_75_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_100_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_150_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /hnsw_results_200_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.

@@ -1,4 +1,45 @@
-Usage: ./build_hnsw  [data_type<int8/uint8/float>] [l2/mips] [data_file.bin]  [output_index_prefix]  [R]  [L]  [alpha] [pruning_rule (0 for RNG, 1 for top-K)] [sampling_rate] [num_levels]   [num_threads_to_use]. See README for more information on parameters.
+Reading bin file /nvmessd1/fbv4/prec1M.fbin ...Metadata: #pts = 1010812, #dims = 384, aligned_dim = 384... done.
+Initialized HNSW Object with 1010812 points, dim=384.
+Writing bin: /tmp/temp_data
+bin: #pts = 101209, #dims = 384, size = 155457032B
+Finished writing bin.
+Reading bin file /tmp/temp_data ...Metadata: #pts = 101209, #dims = 384, aligned_dim = 384... done.
+Initialized HNSW Object with 101209 points, dim=384.
+Building HNSW with L=100, R=64, alpha=1.2
+Starting hnsw build with listSize L=100, degree bound R=64, and alpha=1.2 on HNSW level 0
+Medoid identified as 66687
+10% of build completed 
+20% of build completed 
+30% of build completed 
+40% of build completed 
+50% of build completed 
+60% of build completed 
+70% of build completed 
+80% of build completed 
+90% of build completed 
+100% of build completed 
+110% of build completed 
+Starting final cleanup..done.
+Total build time: 16.1409s
+Average out degree: 44.3349
+Building HNSW with L=100, R=64, alpha=1.2
+Starting hnsw build with listSize L=100, degree bound R=64, and alpha=1.2 on HNSW level 1
+Medoid identified as 121334
+10% of build completed 20% of build completed 30% of build completed 40% of build completed 50% of build completed 60% of build completed 70% of build completed 80% of build completed 90% of build completed 100% of build completed 110% of build completed Starting final cleanup..done.
+Total build time: 319.487s
+Average out degree: 46.753
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_data.bin
+bin: #pts = 101209, #dims = 384, size = 155457032B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_tags.bin
+bin: #pts = 101209, #dims = 1, size = 404844B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_data.bin
+bin: #pts = 1010812, #dims = 384, size = 1552607240B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_tags.bin
+bin: #pts = 1010812, #dims = 1, size = 4043256B
+Finished writing bin.
 Reading bin file /nvmessd1/fbv4/queries.fbin ...Metadata: #pts = 13265, #dims = 384, aligned_dim = 384... done.
  Stat(/nvmessd1/fbv4/prec1M_gt100.bin) returned: 0
 Opened: /nvmessd1/fbv4/prec1M_gt100.bin, size: 10612008, cache_size: 10612008
@@ -11,34 +52,34 @@ Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_tags.
 Metadata: #pts = 101209, #dims = 1.
  Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_labels.txt) returned: -1
  Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_0_universal_label.txt) returned: -1
-Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 101209 nodes and 2586058 out-edges
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 101209 nodes and 4487094 out-edgesAverage out degree: 44.33
 Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_data.bin ...Metadata: #pts = 1010812, #dims = 384, aligned_dim = 384... done.
 Reading bin file /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_tags.bin ...
 Metadata: #pts = 1010812, #dims = 1.
  Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_labels.txt) returned: -1
  Stat(/nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2_1_universal_label.txt) returned: -1
-Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 1010812 nodes and 30399957 out-edges
-Vamana loaded
-  Ls        QPS     Mean Latency (mus)  99.9% Latency   Recall@25      Mean Cmps.   Mean Hops     99.9% Cmps.  99.9% Hops
+Loading hnsw index /nvmessd1/fbv4/avarhade/grann/hnsw_prec1M_L100_R64_a1.2.....done. HNSW has 1010812 nodes and 47258489 out-edgesAverage out degree: 46.75
+HNSW loaded
+  Ls        QPS     Mean Latency (mus)  99.9% Latency   Recall@50      Mean Cmps.   Mean Hops     99.9% Cmps.  99.9% Hops
 =========================================================================================================================
-  50     4045.99              11802.38       27742.14       65.95         4382.63      107.99         5804.00      134.00
-  75     3780.62              12668.22       23020.97       73.05         6176.48      156.83         7867.00      184.00
- 100     3074.19              15583.31       26750.82       77.56         7924.12      206.05         9789.00      231.00
- 150     1976.65              24238.98       39594.13       83.10        11297.54      305.22        13708.00      324.00
- 200     1475.82              32470.34       53685.03       86.42        14523.55      404.75        17477.00      422.00
+  50      340.77               2933.87       12839.75       65.23         5449.03      107.75         7517.00      136.00
+  75      256.95               3891.69        5244.08       71.84         7656.70      156.72         9982.00      183.00
+ 100      197.53               5062.26        6593.25       76.13         9803.92      206.01        12364.00      228.00
+ 150      138.77               7205.80        9491.13       81.45        13953.64      305.19        17287.00      325.00
+ 200      105.27               9498.67       12414.25       84.77        17938.05      404.73        22059.00      420.00
 Done searching. Now saving results 
-Writing bin: hnsw_results_50_idx_uint32.bin
-bin: #pts = 13265, #dims = 25, size = 1326508B
+Writing bin: /hnsw_results_50_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
 Finished writing bin.
-Writing bin: hnsw_results_75_idx_uint32.bin
-bin: #pts = 13265, #dims = 25, size = 1326508B
+Writing bin: /hnsw_results_75_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
 Finished writing bin.
-Writing bin: hnsw_results_100_idx_uint32.bin
-bin: #pts = 13265, #dims = 25, size = 1326508B
+Writing bin: /hnsw_results_100_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
 Finished writing bin.
-Writing bin: hnsw_results_150_idx_uint32.bin
-bin: #pts = 13265, #dims = 25, size = 1326508B
+Writing bin: /hnsw_results_150_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
 Finished writing bin.
-Writing bin: hnsw_results_200_idx_uint32.bin
-bin: #pts = 13265, #dims = 25, size = 1326508B
+Writing bin: /hnsw_results_200_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
 Finished writing bin.
