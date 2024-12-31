@@ -1,0 +1,67 @@
+Parameters set: C=750, L=300, R=128, alpha=1.2, pruning_rule=0
+Reading bin file /nvmessd1/fbv4/prec40M.bin ...Metadata: #pts = 40469609, #dims = 384, aligned_dim = 384... done.
+Initialized Vamana Object with 40469609 points, dim=384.
+Starting vamana build with listSize L=300, degree bound R=128, and alpha=1.2
+Medoid identified as 11890341
+0% of build completed...10% of build completed...20% of build completed...30% of build completed...40% of build completed...50% of build completed...60% of build completed...70% of build completed...80% of build completed...90% of build completed...100% of build completed...
+Starting final cleanup..done.
+      Percentile      Out Degree       In Degree
+=======================================================
+               0               1               0
+              10              20              19
+              20              53              41
+              30              99              58
+              40             128              72
+              50             128              85
+              60             128             100
+              70             128             118
+              80             128             144
+              90             128             194
+             100             128          131632
+0.108% points are unreachable and 11890341 is the most popular in-degree node.
+Average degree 101
+Total build time: 1.25e+04s
+Writing bin: /nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2_data.bin
+bin: #pts = 40469609, #dims = 384, size = 15540329864B
+Finished writing bin.
+Writing bin: /nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2_tags.bin
+bin: #pts = 40469609, #dims = 1, size = 161878444B
+Finished writing bin.
+Reading bin file /nvmessd1/fbv4/queries384d.bin ...Metadata: #pts = 13265, #dims = 384, aligned_dim = 384... done.
+ Stat(/nvmessd1/fbv4/gt100_prec40M) returned: 0
+Opened: /nvmessd1/fbv4/gt100_prec40M, size: 10612008, cache_size: 10612008
+Reading truthset file /nvmessd1/fbv4/gt100_prec40M ...
+Metadata: #pts = 13265, #dims = 100...
+Initialized Empty Vamana Object.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2_data.bin ...Metadata: #pts = 40469609, #dims = 384, aligned_dim = 384... done.
+Reading bin file /nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2_tags.bin ...
+Metadata: #pts = 40469609, #dims = 1.
+ Stat(/nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2_labels.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2_universal_label.txt) returned: -1
+ Stat(/nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2_labels_to_medoids.txt) returned: -1
+Loading vamana index /nvmessd1/fbv4/avarhade/grann/diskann_prec40M_L300_R128_a1.2.........done. Vamana has 40469609 nodes and 4068825971 out-edges
+Average out degree: 100.54
+Vamana loaded
+  Ls        QPS     Mean Latency (mus)  99.9% Latency   Recall@50      Mean Cmps.   Mean Hops     99.9% Cmps.  99.9% Hops
+=========================================================================================================================
+  50      712.45               1402.98       16216.29       77.84         6677.11       62.73        12671.00      112.00
+  75      498.84               2004.54       18405.78       82.91         9139.76       87.23        16310.00      153.00
+ 100      391.37               2555.03       19715.35       85.95        11563.67      111.86        18859.00      178.00
+ 150      268.11               3729.72       21572.80       89.71        16342.44      161.57        25784.00      295.00
+ 200      205.23               4872.40       23179.82       91.87        21003.88      211.27        30164.00      347.00
+Done searching. Now saving results 
+Writing bin: /diskann_results_50_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /diskann_results_75_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /diskann_results_100_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /diskann_results_150_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
+Writing bin: /diskann_results_200_idx_uint32.bin
+bin: #pts = 13265, #dims = 50, size = 2653008B
+Finished writing bin.
